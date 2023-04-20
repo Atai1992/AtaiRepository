@@ -9,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.List;
+
 
 public class PracticeSel {
     @Test
@@ -25,7 +25,7 @@ public class PracticeSel {
         WebElement email = driver.findElement(By.id("userEmail"));
         email.sendKeys("johndoe@gmail.com");
         Thread.sleep(2000);
-        WebElement addres = driver.findElement(By.id("current Address"))
+        WebElement addres = driver.findElement(By.id("currentAddress"));
         addres.sendKeys("New Yor 45 str");
         Thread.sleep(2000);
         WebElement permAddres = driver.findElement(By.id("permanentAddress"));
@@ -41,15 +41,15 @@ public class PracticeSel {
         WebElement johnEmail= driver.findElement(By.id("email"));
         String expectedEmail="Email:johndoe@gmail.com";
         Assert.assertEquals(johnEmail.getText(),expectedEmail);
-        WebElement johnAddress= driver.findElement(By.id("currentAddress"));
+        WebElement johnAddress= driver.findElement(By.xpath("//div/p[3]"));
         String expectedAddress="Current Address :New Yor 45 str";
         Assert.assertEquals(johnAddress.getText(),expectedAddress);
-//        WebElement johnPermanent=driver.findElement(By.id("permanentAddress"));
-//        String expectedPermanent="Permananet Address:Brooklyn Chase av 56";
-//        Assert.assertEquals(johnPermanent.getText(),expectedPermanent);
+        WebElement johnPermanent=driver.findElement(By.xpath("//div/p[4]"));
+        String expectedPermanent="Permananet Address :Brooklyn Chase av 56";
+        Assert.assertEquals(johnPermanent.getText(),expectedPermanent);
         String sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
         System.out.println("Session ID" + sessionId);
-        driver.close();
-        driver.quit();
-    }
-}
+//        driver.close();
+//        driver.quit();
+        System.out.println("TEST PASSED");
+}}
