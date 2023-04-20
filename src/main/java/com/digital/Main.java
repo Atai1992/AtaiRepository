@@ -1,4 +1,4 @@
-package com.digital;
+package com.digital.ui;
 
 public class Main {
     public static void main(String[] args) {
